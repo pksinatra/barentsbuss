@@ -3,56 +3,340 @@
   const nav = document.getElementById("main-nav");
   const footer = document.getElementById("footer-content");
   const langToggle = document.getElementById("lang-toggle");
+  const navToggle = document.getElementById("nav-toggle");
   const brand = document.getElementById("brand");
-  const state = { lang: localStorage.getItem("bb-lang") || "no", employeeUnlocked: false };
   const site = window.siteContent;
+  const state = {
+    lang: localStorage.getItem("bb-lang") || "no",
+    employeeUnlocked: false,
+    navOpen: false
+  };
 
-  function keyFromHash() {
+  function currentPage() {
     const hash = window.location.hash.replace(/^#\/?/, "");
-    return (site.pages.find((p) => p.slug === hash) || site.pages[0]).key;
+    return site.pages.find((page) => page.slug === hash) || site.pages[0];
   }
-  const t = () => site.content[state.lang];
+
+  function copy() {
+    return site.content[state.lang];
+  }
+
+  function pageCopy(key) {
+    return copy()[key];
+  }
+
+  function pageLabel(page) {
+    return state.lang === "no" ? page.navNo : page.navEn;
+  }
+
+  function updateMeta(page) {
+    const languageCopy = copy();
+    const title = `${pageCopy(page.key).title} | Barents Buss`;
+    const description = languageCopy.meta[page.key] || site.defaultDescription;
+    document.title = title;
+    setMeta("description", description);
+    setMeta("og:title", title, "property");
+    setMeta("og:description", description, "property");
+    setMeta("og:url", `${site.siteUrl}${page.slug ? `#/${page.slug}` : ""}`, "property");
+  }
+
+  function setMeta(name, content, attribute = "name") {
+    let element = document.querySelector(`meta[${attribute}="${name}"]`);
+    if (!element) {
+      element = document.createElement("meta");
+      element.setAttribute(attribute, name);
+      document.head.appendChild(element);
+    }
+    element.setAttribute("content", content);
+  }
+
+  function renderBrand() {
+    brand.innerHTML = `<img src="${site.logo}" alt="Barents Buss logo"><span>Barents Buss</span>`;
+  }
 
   function renderNav() {
-    nav.innerHTML = site.pages.map((p) => `<a class="${keyFromHash()===p.key?'active':''}" href="#/${p.slug}">${state.lang==='no'?p.navNo:p.navEn}</a>`).join("");
+    const activePage = currentPage();
+    nav.innerHTML = site.pages
+      .map((page) => {
+        const active = activePage.key === page.key ? " active" : "";
+        return `<a class="nav-link${active}" href="#/${page.slug}">${pageLabel(page)}</a>`;
+      })
+      .join("");
+    nav.classList.toggle("open", state.navOpen);
+    navToggle.setAttribute("aria-expanded", String(state.navOpen));
   }
 
-  function employeeView(copy) {
+  function paragraphs(lines) {
+    return lines.map((line) => `<p>${line}</p>`).join("");
+  }
+
+  function heroSection(data, image = site.sectionImage) {
+    return `
+      <section class="page-hero">
+        <div class="page-hero-copy">
+          <span class="eyebrow">${data.kicker}</span>
+          <h1>${data.title}</h1>
+          <p class="lead">${data.lead}</p>
+        </div>
+        <img class="page-hero-image" src="${image}" alt="Barents Buss">
+      </section>
+    `;
+  }
+
+  function renderHome(data) {
+    return `
+      <section class="home-hero">
+        <img class="home-hero-image" src="${site.heroImage}" alt="Barents Buss på tur">
+        <div class="home-hero-copy">
+          <span class="eyebrow">${data.kicker}</span>
+          <h1>${data.title}</h1>
+          <p class="lead">${data.lead}</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#/kontakt">${copy().ctaContact}</a>
+            <a class="btn secondary" href="#/flybuss">${copy().ctaAirport}</a>
+          </div>
+        </div>
+      </section>
+      <section class="intro-band">
+        <div class="container intro-grid">
+          <div>${paragraphs(data.body)}</div>
+          <a class="contact-panel" href="tel:${site.contact.phoneHref}">
+            <span>${state.lang === "no" ? "Bestilling 24-7" : "Booking 24/7"}</span>
+            <strong>${site.contact.phoneCompact}</strong>
+          </a>
+        </div>
+      </section>
+      <section class="container highlight-grid">
+        ${data.highlights
+          .map(
+            (item) => `
+              <a class="highlight-card" href="${item.href}">
+                <h2>${item.title}</h2>
+                <p>${item.text}</p>
+              </a>
+            `
+          )
+          .join("")}
+      </section>
+    `;
+  }
+
+  function renderAbout(data) {
+    return `
+      <div class="container page-stack">
+        ${heroSection(data)}
+        <section class="text-panel wide-text">${paragraphs(data.body)}</section>
+      </div>
+    `;
+  }
+
+  function renderServices(data) {
+    return `
+      <div class="container page-stack">
+        ${heroSection(data, "assets/images/cropped-cropped-forside.jpg")}
+        <section class="split-section">
+          <div class="text-panel">${paragraphs(data.body)}<p class="booking-line">${data.booking}</p></div>
+          <div class="fleet-list">
+            <h2>${data.listTitle}</h2>
+            <ul>${data.list.map((item) => `<li>${item}</li>`).join("")}</ul>
+          </div>
+        </section>
+      </div>
+    `;
+  }
+
+  function renderSchedule(data) {
+    const rows = data.schedule
+      .map((row) => {
+        if (row.group) {
+          return `<tr class="schedule-group"><th colspan="3">${row.group}</th></tr>`;
+        }
+        return `<tr><th scope="row">${row.stop}</th><td>${row.morning}</td><td>${row.evening}</td></tr>`;
+      })
+      .join("");
+
+    return `
+      <div class="container page-stack">
+        ${heroSection(data, "assets/images/DSC_0330.jpg")}
+        <section class="schedule-section">
+          <div class="schedule-scroll">
+            <table>
+              <thead>
+                <tr>
+                  ${data.scheduleHeaders.map((header) => `<th scope="col">${header}</th>`).join("")}
+                </tr>
+              </thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
+          <div class="schedule-note">
+            <p>${data.note}</p>
+            <strong>${data.welcome}</strong>
+          </div>
+        </section>
+      </div>
+    `;
+  }
+
+  function renderContact(data) {
+    return `
+      <div class="container page-stack">
+        ${heroSection(data, "assets/images/footer-image.jpg")}
+        <section class="contact-layout">
+          <div class="text-panel">
+            <h2>${data.locationTitle}</h2>
+            ${paragraphs(data.body)}
+          </div>
+          <div class="contact-actions">
+            <a class="btn primary" href="tel:${site.contact.phoneHref}">${site.contact.phone}</a>
+            <a class="btn secondary" href="mailto:${site.contact.email}">${site.contact.email}</a>
+            <a class="btn neutral" href="${site.contact.facebook}" target="_blank" rel="noopener noreferrer">Facebook</a>
+          </div>
+        </section>
+      </div>
+    `;
+  }
+
+  function renderGallery(data) {
+    return `
+      <div class="container page-stack">
+        ${heroSection(data, "assets/images/Santa_park_Rovaniemi-DSC_0324.jpg")}
+        <section class="media-section">
+          <div class="video-placeholder">
+            <span>${data.videoTitle}</span>
+          </div>
+          <div>
+            <h2>${data.galleryTitle}</h2>
+            <div class="gallery-grid">
+              ${site.galleryImages
+                .map(
+                  (image) => `
+                    <figure>
+                      <img src="${image.src}" alt="${state.lang === "no" ? image.altNo : image.altEn}">
+                    </figure>
+                  `
+                )
+                .join("")}
+            </div>
+          </div>
+        </section>
+      </div>
+    `;
+  }
+
+  function renderEmployees(data) {
     if (!state.employeeUnlocked) {
-      return `<section class="card"><h1>${copy.title}</h1><p class="lead">${copy.lead}</p><p>${copy.body[0]}</p><form id="employee-form" class="employee-form"><input id="employee-password" type="password" required placeholder="${state.lang==='no'?'Passord':'Password'}"><button>${state.lang==='no'?'Lås opp':'Unlock'}</button></form><p class="feedback" id="employee-feedback"></p></section>`;
+      return `
+        <div class="container page-stack compact">
+          ${heroSection(data)}
+          <section class="employee-panel">
+            <form id="employee-form" class="employee-form">
+              <label for="employee-password">${data.passwordLabel}</label>
+              <div class="password-row">
+                <input id="employee-password" type="password" required autocomplete="current-password">
+                <button class="btn primary" type="submit">${data.unlock}</button>
+              </div>
+              <p class="feedback" id="employee-feedback" aria-live="polite"></p>
+            </form>
+          </section>
+        </div>
+      `;
     }
-    return `<section class="card"><h1>${copy.title}</h1><p class="lead">${copy.lead}</p><a class="btn" target="_blank" rel="noopener noreferrer" href="${site.employeeDocumentUrl}">${state.lang==='no'?'Åpne dokument':'Open document'}</a></section>`;
+
+    return `
+      <div class="container page-stack compact">
+        ${heroSection(data)}
+        <section class="employee-panel">
+          <a class="btn primary" target="_blank" rel="noopener noreferrer" href="${site.employeeDocumentUrl}">
+            ${data.openDocument}
+          </a>
+        </section>
+      </div>
+    `;
+  }
+
+  function bindEmployeeForm() {
+    const form = document.getElementById("employee-form");
+    if (!form) return;
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const password = document.getElementById("employee-password").value;
+      if (password === site.employeePassword) {
+        state.employeeUnlocked = true;
+        render();
+        return;
+      }
+      document.getElementById("employee-feedback").textContent = pageCopy("employees").incorrect;
+    });
   }
 
   function renderPage() {
-    const key = keyFromHash();
-    const copy = t()[key];
-    if (key === "employees") {
-      app.innerHTML = employeeView(copy);
-      const form = document.getElementById("employee-form");
-      if (form) form.addEventListener("submit", (e) => { e.preventDefault(); const ok = document.getElementById("employee-password").value === site.employeePassword; if (ok) { state.employeeUnlocked = true; render(); } else { document.getElementById("employee-feedback").textContent = state.lang==='no'?'Feil passord.':'Incorrect password.'; } });
-      return;
-    }
+    const page = currentPage();
+    const data = pageCopy(page.key);
+    updateMeta(page);
 
-    const list = copy.list ? `<ul>${copy.list.map((x)=>`<li>${x}</li>`).join("")}</ul>` : "";
-    const cta = key==="home" ? `<div class="actions"><a class="btn" href="#/turbuss">${t().ctaReadMore}</a><a class="btn ghost" href="#/kontakt">${t().ctaContact}</a></div>` : "";
-    const facebook = key==="contact" ? `<p><a href="${copy.facebook}" target="_blank" rel="noopener noreferrer">Facebook</a></p>` : "";
-    const gallery = key==="gallery" ? `<div class="gallery">${site.galleryImages.map((src)=>`<img src="${src}" alt="Barents Buss">`).join("")}</div>` : `<img class="section-image" src="${site.sectionImage}" alt="Barents Buss">`;
+    const renderers = {
+      home: renderHome,
+      about: renderAbout,
+      services: renderServices,
+      airport: renderSchedule,
+      contact: renderContact,
+      gallery: renderGallery,
+      employees: renderEmployees
+    };
 
-    app.innerHTML = `<section class="hero"><img class="hero-image" src="${site.heroImage}" alt="Barents Buss"><div><h1>${copy.title}</h1><p class="lead">${copy.lead}</p>${cta}</div></section><section class="card">${copy.body.map((p)=>`<p>${p}</p>`).join("")}${list}${facebook}</section>${gallery}`;
+    app.innerHTML = renderers[page.key](data);
+    bindEmployeeForm();
+  }
+
+  function renderFooter() {
+    footer.innerHTML = `
+      <div class="footer-grid">
+        <div>
+          <img class="footer-logo" src="${site.logo}" alt="Barents Buss logo">
+          <p>${copy().footer}</p>
+        </div>
+        <div>
+          <strong>${site.contact.phone}</strong>
+          <a href="mailto:${site.contact.email}">${site.contact.email}</a>
+          <span>${site.contact.address}</span>
+        </div>
+      </div>
+    `;
   }
 
   function render() {
     document.documentElement.lang = state.lang === "no" ? "no" : "en";
-    brand.innerHTML = `<img src="${site.logo}" alt="Barents Buss logo">`;
     langToggle.textContent = state.lang === "no" ? "EN" : "NO";
+    nav.setAttribute("aria-label", state.lang === "no" ? "Hovedmeny" : "Main menu");
+    renderBrand();
     renderNav();
     renderPage();
-    footer.innerHTML = `<p>${t().footer}</p><img class="footer-image" src="${site.footerImage}" alt="Barents Buss">`;
+    renderFooter();
   }
 
-  langToggle.addEventListener("click", () => { state.lang = state.lang === "no" ? "en" : "no"; localStorage.setItem("bb-lang", state.lang); render(); });
-  window.addEventListener("hashchange", render);
+  langToggle.addEventListener("click", () => {
+    state.lang = state.lang === "no" ? "en" : "no";
+    localStorage.setItem("bb-lang", state.lang);
+    render();
+  });
+
+  navToggle.addEventListener("click", () => {
+    state.navOpen = !state.navOpen;
+    renderNav();
+  });
+
+  nav.addEventListener("click", () => {
+    state.navOpen = false;
+    renderNav();
+  });
+
+  window.addEventListener("hashchange", () => {
+    state.navOpen = false;
+    render();
+  });
+
   if (!window.location.hash) window.location.hash = "#/";
   render();
 })();

@@ -3,20 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Barents Buss</title>
-    <meta name="description" content="Barents Buss - turbuss og flybuss i Sør-Varanger." />
+    <title>Barents Buss | Turbuss og flybuss i Sør-Varanger</title>
+    <meta
+      name="description"
+      content="Barents Buss i Kirkenes tilbyr turbuss, transfer, sightseeing, gruppeturer og flybuss i Barentsregionen. Bestilling 24-7 på telefon 90 26 23 46."
+    />
+    <meta name="theme-color" content="#0c5f69" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Barents Buss | Turbuss og flybuss i Sør-Varanger" />
+    <meta
+      property="og:description"
+      content="Turbuss, transfer, sightseeing, gruppeturer og flybuss fra Kirkenes."
+    />
+    <meta property="og:url" content="https://www.barentsbuss.no/beta/" />
+    <meta property="og:image" content="https://www.barentsbuss.no/beta/assets/images/forside.jpg" />
+    <link rel="canonical" href="https://www.barentsbuss.no/beta/" />
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" id="brand" href="#/"></a>
-        <nav id="main-nav" class="main-nav" aria-label="Main menu"></nav>
-        <button id="lang-toggle" class="lang-btn" type="button">EN</button>
+        <a class="brand" id="brand" href="#/" aria-label="Barents Buss"></a>
+        <div class="header-actions">
+          <button id="nav-toggle" class="icon-btn" type="button" aria-expanded="false" aria-controls="main-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <button id="lang-toggle" class="lang-btn" type="button">EN</button>
+        </div>
+        <nav id="main-nav" class="main-nav" aria-label="Hovedmeny"></nav>
       </div>
     </header>
-    <main id="app" class="container"></main>
-    <footer class="site-footer"><div class="container" id="footer-content"></div></footer>
+    <main id="app" class="site-main"></main>
+    <footer class="site-footer">
+      <div class="container" id="footer-content"></div>
+    </footer>
+    <noscript>
+      <div class="container no-script">Denne siden trenger JavaScript for meny og sideinnhold.</div>
+    </noscript>
     <script src="assets/content/site-content.js"></script>
     <script src="assets/js/app.js"></script>
   </body>

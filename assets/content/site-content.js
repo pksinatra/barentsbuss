@@ -1,45 +1,272 @@
 window.siteContent = {
+  defaultTitle: "Barents Buss | Turbuss og flybuss i Sør-Varanger",
+  defaultDescription:
+    "Barents Buss i Kirkenes tilbyr turbuss, transfer, sightseeing, gruppeturer og flybuss i Barentsregionen. Bestilling 24-7 på telefon 90 26 23 46.",
+  siteUrl: "https://www.barentsbuss.no/beta/",
+  logo: "assets/images/cropped-barents-buss-Logo-liten25304.png",
+  heroImage: "assets/images/forside.jpg",
+  sectionImage: "assets/images/cropped-cropped-forside.jpg",
+  footerImage: "assets/images/footer-image.jpg",
+  employeePassword: "Barentsbuss-2018",
+  employeeDocumentUrl:
+    "https://1drv.ms/x/c/db5fdb5c71ceb47a/IQB6tM5xXNtfIIDbawYAAAAAAXeUddTAomfN2NNrP0yhxYk?e=gZbWEO",
+  contact: {
+    company: "Barents Buss AS",
+    phone: "(+47) 90 26 23 46",
+    phoneCompact: "90 26 23 46",
+    phoneHref: "+4790262346",
+    email: "barentsbuss@outlook.com",
+    address: "Svanvikveien 2874, 9925 Svanvik",
+    facebook: "https://www.facebook.com/Barents-Buss-750897748452541"
+  },
   pages: [
-    { key: "home", slug: "", navNo: "Hjem", navEn: "Home" },
+    { key: "home", slug: "", navNo: "Forsiden", navEn: "Home" },
+    { key: "about", slug: "om-oss", navNo: "Om oss", navEn: "About us" },
     { key: "services", slug: "turbuss", navNo: "Turbuss", navEn: "Coach service" },
     { key: "airport", slug: "flybuss", navNo: "Flybuss", navEn: "Airport shuttle" },
-    { key: "about", slug: "om-oss", navNo: "Om oss", navEn: "About us" },
     { key: "contact", slug: "kontakt", navNo: "Kontakt", navEn: "Contact" },
     { key: "gallery", slug: "video-og-bilder", navNo: "Video og bilder", navEn: "Video & photos" },
     { key: "employees", slug: "for-ansatte", navNo: "For ansatte", navEn: "For employees" }
   ],
-  employeePassword: "Barentsbuss-2018",
-  employeeDocumentUrl:
-    "https://1drv.ms/x/c/db5fdb5c71ceb47a/IQB6tM5xXNtfIIDbawYAAAAAAXeUddTAomfN2NNrP0yhxYk?e=gZbWEO",
-  logo: "assets/images/cropped-barents-buss-Logo-liten25304.png",
+  galleryImages: [
+    {
+      src: "assets/images/DSC_0330.jpg",
+      altNo: "Barents Buss på vintertur",
+      altEn: "Barents Buss winter trip"
+    },
+    {
+      src: "assets/images/Turne-med-Scene-Finnmark-og-Marthe-Valle-DSC_0270.jpg",
+      altNo: "Turne med Scene Finnmark og Marthe Valle",
+      altEn: "Tour with Scene Finnmark and Marthe Valle"
+    },
+    {
+      src: "assets/images/Santa_park_Rovaniemi-DSC_0324.jpg",
+      altNo: "Tur til Santa Park i Rovaniemi",
+      altEn: "Trip to Santa Park in Rovaniemi"
+    }
+  ],
   content: {
     no: {
-      ctaReadMore: "Les mer",
+      languageName: "Norsk",
+      ctaReadMore: "Les mer om turbuss",
       ctaContact: "Kontakt oss",
-      footer: "© Barents Buss AS",
-      home: {title:"Barents Buss",lead:"Barents Buss AS tar imot alle typer turkjøring. Bestilling 24-7 på telefon 90 26 23 46.",body:["Vi tilbyr både turbuss og flybuss med fokus på sikkerhet, kvalitet og fornøyde kunder."]},
-      services: {title:"Turbuss",lead:"Transfer, sightseeing og gruppeturer.",body:["Våre busser er godt utstyrt med AC, toalett, kjøkken, lademuligheter (USB og 220V), samt WiFi på de fleste turene.","Vi tilrettelegger hele turopplevelsen og skreddersyr turer etter behov og ønsker."],list:["MAN Lion’s Coach – 53 seter","Volvo 9500 – 50 seter","Volvo 9700 – 47 seter og HC-lift","Volvo 9700 – 60 seter","Mercedes Sprinter – 20 seter"]},
-      airport: {title:"Flybuss",lead:"Shuttle-buss til og fra flyplassen.",body:["Rutetider er i hovedsak tilpasset fly til og fra Oslo.","Vi tar kredittkort, kontant og Vipps (701771). Pris: NOK 150." ]},
-      about: {title:"Om oss",lead:"Lokal erfaring siden 1994.",body:["Barents Buss AS ble etablert som aksjeselskap i januar 2018, men har tidligere vært aktiv under samme navn i perioden 1994–2006.","Vi er i dag 8 på lønningslisten, hvorav 3 fast ansatte. Vi har lang erfaring med reiser i Norge, Russland, Sverige og Finland."]},
-      contact: {title:"Kontakt",lead:"Kontakt oss for et uforpliktende tilbud.",body:["Barents Buss AS","Svanvikveien 2874, 9925 Svanvik","Telefon: (+47) 90 26 23 46","E-post: barentsbuss@outlook.com"],facebook:"https://www.facebook.com/Barents-Buss-750897748452541"},
-      gallery: {title:"Video og bilder",lead:"Stemningsbilder fra noen av turene våre.",body:["Utvalgte bilder fra galleriet på den tidligere nettsiden." ]},
-      employees: {title:"For ansatte",lead:"Passordbeskyttet område.",body:["Skriv inn passord for å åpne internt dokument."]}
+      ctaAirport: "Se flybuss",
+      footer: "Barents Buss AS",
+      meta: {
+        home: "Barents Buss AS er stasjonert i Kirkenes og tilbyr turbuss, transfer, sightseeing, gruppeturer og flybuss i Barentsregionen.",
+        about: "Les om Barents Buss AS, lokal erfaring siden 1994 og busser utstyrt for trygge turer i Norge, Finland, Sverige og Russland.",
+        services: "Bestill turbuss, transfer, sightseeing og gruppeturer hos Barents Buss AS. Busser med AC, toalett, kjøkken, lading og WiFi.",
+        airport: "Rutetider og pris for Barents Buss flybuss mellom Kirkenes lufthavn, hotellene, sykehuset og Hurtigruten.",
+        contact: "Kontakt Barents Buss AS for uforpliktende tilbud på turkjøring, transfer, sightseeing og flybuss.",
+        gallery: "Video og bilder fra turer med Barents Buss AS i Barentsregionen.",
+        employees: "Passordbeskyttet område for ansatte i Barents Buss AS."
+      },
+      home: {
+        title: "Barents Buss",
+        kicker: "Turbussen for deg som reiser i Barentsregionen",
+        lead:
+          "Barents Buss AS er stasjonert i Kirkenes. Vi påtar oss det meste av transportoppdrag: turkjøring, transfer, sightseeing og gruppeturer.",
+        body: [
+          "Barents Buss AS tar imot alle typer turkjøring. Bestilling 24-7 på telefon 90 26 23 46.",
+          "Vi tilbyr også flybuss til og fra flyplassen. Se våre rutetider og kontakt oss gjerne for et uforpliktende tilbud."
+        ],
+        highlights: [
+          { title: "Turbuss", text: "Transfer, sightseeing og gruppeturer tilpasset deres behov.", href: "#/turbuss" },
+          { title: "Flybuss", text: "Shuttle-buss til og fra Kirkenes lufthavn.", href: "#/flybuss" },
+          { title: "Kontakt", text: "Bestilling 24-7 på telefon 90 26 23 46.", href: "#/kontakt" }
+        ]
+      },
+      about: {
+        title: "Om oss",
+        kicker: "Lokal erfaring siden 1994",
+        lead:
+          "Barents Buss AS ble etablert som aksjeselskap i januar 2018, men har tidligere vært aktiv under samme navn i tiden fra 1994 - 2006.",
+        body: [
+          "Fra den perioden har vi med oss erfaring med mange reiser i Norge, Russland, Sverige og Finland.",
+          "Vi er i dag 8 på lønningslisten, hvorav 3 er fast ansatt. Våre busser er godt utstyrt med de fleste fasiliteter som AC, toalett, kjøkken og lademuligheter både USB og 220V. Vi har også WiFi om bord på de fleste turene.",
+          "Vårt fokus er sikkerhet, kvalitet og fornøyde kunder!"
+        ]
+      },
+      services: {
+        title: "Turbuss",
+        kicker: "Transfer, sightseeing og gruppeturer",
+        lead:
+          "Barents Buss AS tar imot alle typer turkjøring; transfer, sightseeing og gruppeturer.",
+        body: [
+          "Våre busser er godt utstyrt med de fleste fasiliteter som AC, toalett, kjøkken og lademuligheter både USB og 220V. Vi har også WiFi om bord på de fleste turene.",
+          "Vi er behjelpelig med å tilrettelegge hele turopplevelsen, og kan skreddersy turer etter dine behov og ønsker."
+        ],
+        listTitle: "Vi har 5 turbusser",
+        list: [
+          "MAN Lion's Coach, 53 seter",
+          "Volvo 9500, 50 seter",
+          "Volvo 9700, 47 seter og HC-lift",
+          "Volvo 9700, 60 seter",
+          "Mercedes Sprinter, 20 seter"
+        ],
+        booking: "Bestilling 24-7 på telefon 90 26 23 46."
+      },
+      airport: {
+        title: "Flybuss",
+        kicker: "Shuttle-buss til og fra flyplassen",
+        lead: "Barents Buss kjører shuttle-buss til og fra flyplassen følgende tider:",
+        note:
+          "Rutetidene er i hovedsak tilpasset fly til og fra Oslo. Vi tar kredittkort, kontant og Vipps (701771). Pris, NOK 150.",
+        welcome: "Velkommen om bord!",
+        scheduleHeaders: ["Avgang/Departure", "Morgen/Morning", "Kveld/Evening ex. Mon, Tue, Sat"],
+        schedule: [
+          { stop: "Avgang Hurtigruten", morning: "09:20", evening: "-" },
+          { stop: "Avgang Thon hotell", morning: "08:20 - 09:25", evening: "(17:15 sun) - 18:40" },
+          { stop: "Avgang Scandic hotell", morning: "08:25 - 09:30", evening: "(17:20 sun) - 18:45" },
+          { stop: "Avgang sykehuset", morning: "09:37", evening: "(17:23 sun) - 18:53" },
+          { stop: "Ankomst lufthavnen", morning: "09:55", evening: "(18:00 sun) - 19:06" },
+          { group: "Ankomst/Arrival" },
+          { stop: "Avgang lufthavnen", morning: "11:25 - 11:50", evening: "20:40" },
+          { stop: "Ankomst sykehuset", morning: "11:38 -", evening: "-" },
+          { stop: "Ankomst Scandic hotell", morning: "11:45 - 12:07", evening: "20:56" },
+          { stop: "Ankomst Thon hotell", morning: "11:50 - 12:10", evening: "21:00" },
+          { stop: "Ankomst Hurtigruten", morning: "11:55 - 12:15", evening: "-" }
+        ]
+      },
+      contact: {
+        title: "Kontakt",
+        kicker: "Uforpliktende tilbud",
+        lead: "Kontakt oss gjerne for uforpliktende tilbud.",
+        locationTitle: "Hvordan finne oss",
+        body: [
+          "Vårt hovedkontor: Barents Buss AS",
+          "Svanvikveien 2874, 9925 Svanvik",
+          "Telefonnummer: (+47) 90 26 23 46",
+          "E-post: barentsbuss@outlook.com"
+        ]
+      },
+      gallery: {
+        title: "Video og bilder",
+        kicker: "Fra noen av turene",
+        lead: "Bilder fra noen av turene og video fra Bussmagasinet.",
+        videoTitle: "Video fra Bussmagasinet",
+        galleryTitle: "Bilder fra noen av turene"
+      },
+      employees: {
+        title: "For ansatte",
+        kicker: "Passordbeskyttet område",
+        lead: "Skriv inn passord for å åpne internt dokument.",
+        passwordLabel: "Passord",
+        unlock: "Lås opp",
+        openDocument: "Åpne dokument",
+        incorrect: "Feil passord."
+      }
     },
     en: {
-      ctaReadMore: "Read more",
+      languageName: "English",
+      ctaReadMore: "Coach service",
       ctaContact: "Contact us",
-      footer: "© Barents Buss AS",
-      home: {title:"Barents Buss",lead:"Barents Buss AS handles all kinds of group and charter transport. Booking 24/7: +47 90 26 23 46.",body:["We provide coach and airport shuttle services with a strong focus on safety, quality and customer satisfaction."]},
-      services: {title:"Coach service",lead:"Transfers, sightseeing and group trips.",body:["Our buses are equipped with AC, toilet, kitchen, charging (USB and 220V), plus WiFi on most trips.","We can plan the full travel experience and tailor trips to your needs."],list:["MAN Lion’s Coach – 53 seats","Volvo 9500 – 50 seats","Volvo 9700 – 47 seats and wheelchair lift","Volvo 9700 – 60 seats","Mercedes Sprinter – 20 seats"]},
-      airport: {title:"Airport shuttle",lead:"Shuttle service to and from the airport.",body:["Departure times are mainly adapted to flights to and from Oslo.","We accept card, cash and Vipps (701771). Price: NOK 150."]},
-      about: {title:"About us",lead:"Local experience since 1994.",body:["Barents Buss AS was established as a limited company in January 2018, but operated under the same name during 1994–2006.","We currently have 8 people on payroll, including 3 full-time employees, with long experience in Norway, Russia, Sweden and Finland."]},
-      contact: {title:"Contact",lead:"Get in touch for a no-obligation quote.",body:["Barents Buss AS","Svanvikveien 2874, 9925 Svanvik, Norway","Phone: +47 90 26 23 46","Email: barentsbuss@outlook.com"],facebook:"https://www.facebook.com/Barents-Buss-750897748452541"},
-      gallery: {title:"Video & photos",lead:"Selected moments from our trips.",body:["Selected images from the previous website gallery."]},
-      employees: {title:"For employees",lead:"Password-protected area.",body:["Enter password to open the internal document."]}
+      ctaAirport: "Airport shuttle",
+      footer: "Barents Buss AS",
+      meta: {
+        home: "Barents Buss AS in Kirkenes provides coach hire, transfers, sightseeing, group trips and airport shuttle service in the Barents region.",
+        about: "About Barents Buss AS, local transport experience since 1994 and well-equipped coaches for safe travel.",
+        services: "Book coach hire, transfers, sightseeing and group travel with Barents Buss AS.",
+        airport: "Airport shuttle timetable and price between Kirkenes Airport, hotels, the hospital and Hurtigruten.",
+        contact: "Contact Barents Buss AS for a no-obligation quote for coach hire, transfers, sightseeing and airport shuttle.",
+        gallery: "Video and photos from trips with Barents Buss AS in the Barents region.",
+        employees: "Password-protected area for Barents Buss AS employees."
+      },
+      home: {
+        title: "Barents Buss",
+        kicker: "Coach travel in the Barents region",
+        lead:
+          "Barents Buss AS is based in Kirkenes. We handle most transport assignments, including coach hire, transfers, sightseeing and group trips.",
+        body: [
+          "Barents Buss AS accepts all kinds of charter transport. Booking 24/7 by phone: +47 90 26 23 46.",
+          "We also provide airport shuttle service to and from Kirkenes Airport. See our timetable or contact us for a no-obligation quote."
+        ],
+        highlights: [
+          { title: "Coach service", text: "Transfers, sightseeing and group trips tailored to your needs.", href: "#/turbuss" },
+          { title: "Airport shuttle", text: "Shuttle service to and from Kirkenes Airport.", href: "#/flybuss" },
+          { title: "Contact", text: "Booking 24/7 by phone: +47 90 26 23 46.", href: "#/kontakt" }
+        ]
+      },
+      about: {
+        title: "About us",
+        kicker: "Local experience since 1994",
+        lead:
+          "Barents Buss AS was established as a limited company in January 2018, but previously operated under the same name from 1994 to 2006.",
+        body: [
+          "From that period we bring experience from many journeys in Norway, Russia, Sweden and Finland.",
+          "Today we have 8 people on payroll, including 3 full-time employees. Our coaches are well equipped with facilities such as AC, toilet, kitchen and charging options with both USB and 220V. We also provide WiFi on most trips.",
+          "Our focus is safety, quality and satisfied customers!"
+        ]
+      },
+      services: {
+        title: "Coach service",
+        kicker: "Transfers, sightseeing and group trips",
+        lead:
+          "Barents Buss AS accepts all kinds of coach assignments, including transfers, sightseeing and group trips.",
+        body: [
+          "Our coaches are well equipped with facilities such as AC, toilet, kitchen and charging options with both USB and 220V. We also provide WiFi on most trips.",
+          "We can help arrange the complete travel experience and tailor trips to your needs and wishes."
+        ],
+        listTitle: "Our 5 coaches",
+        list: [
+          "MAN Lion's Coach, 53 seats",
+          "Volvo 9500, 50 seats",
+          "Volvo 9700, 47 seats and wheelchair lift",
+          "Volvo 9700, 60 seats",
+          "Mercedes Sprinter, 20 seats"
+        ],
+        booking: "Booking 24/7 by phone: +47 90 26 23 46."
+      },
+      airport: {
+        title: "Airport shuttle",
+        kicker: "Shuttle service to and from the airport",
+        lead: "Barents Buss operates shuttle service to and from the airport at the following times:",
+        note:
+          "Departure times are mainly adapted to flights to and from Oslo. We accept card, cash and Vipps (701771). Price: NOK 150.",
+        welcome: "Welcome on board!",
+        scheduleHeaders: ["Departure/Avgang", "Morning/Morgen", "Evening/Kveld ex. Mon, Tue, Sat"],
+        schedule: [
+          { stop: "Departure Hurtigruten", morning: "09:20", evening: "-" },
+          { stop: "Departure Thon Hotel", morning: "08:20 - 09:25", evening: "(17:15 sun) - 18:40" },
+          { stop: "Departure Scandic Hotel", morning: "08:25 - 09:30", evening: "(17:20 sun) - 18:45" },
+          { stop: "Departure hospital", morning: "09:37", evening: "(17:23 sun) - 18:53" },
+          { stop: "Arrival airport", morning: "09:55", evening: "(18:00 sun) - 19:06" },
+          { group: "Arrival/Ankomst" },
+          { stop: "Departure airport", morning: "11:25 - 11:50", evening: "20:40" },
+          { stop: "Arrival hospital", morning: "11:38 -", evening: "-" },
+          { stop: "Arrival Scandic Hotel", morning: "11:45 - 12:07", evening: "20:56" },
+          { stop: "Arrival Thon Hotel", morning: "11:50 - 12:10", evening: "21:00" },
+          { stop: "Arrival Hurtigruten", morning: "11:55 - 12:15", evening: "-" }
+        ]
+      },
+      contact: {
+        title: "Contact",
+        kicker: "No-obligation quote",
+        lead: "Please contact us for a no-obligation quote.",
+        locationTitle: "How to find us",
+        body: [
+          "Our main office: Barents Buss AS",
+          "Svanvikveien 2874, 9925 Svanvik, Norway",
+          "Phone: (+47) 90 26 23 46",
+          "Email: barentsbuss@outlook.com"
+        ]
+      },
+      gallery: {
+        title: "Video & photos",
+        kicker: "From selected trips",
+        lead: "Photos from selected trips and video from Bussmagasinet.",
+        videoTitle: "Video from Bussmagasinet",
+        galleryTitle: "Photos from selected trips"
+      },
+      employees: {
+        title: "For employees",
+        kicker: "Password-protected area",
+        lead: "Enter password to open the internal document.",
+        passwordLabel: "Password",
+        unlock: "Unlock",
+        openDocument: "Open document",
+        incorrect: "Incorrect password."
+      }
     }
-  },
-  heroImage: "assets/images/forside.jpg",
-  sectionImage: "assets/images/cropped-cropped-forside.jpg",
-  galleryImages: ["assets/images/DSC_0330.jpg","assets/images/Turne-med-Scene-Finnmark-og-Marthe-Valle-DSC_0270.jpg","assets/images/Santa_park_Rovaniemi-DSC_0324.jpg"],
-  footerImage: "assets/images/footer-image.jpg"
+  }
 };
