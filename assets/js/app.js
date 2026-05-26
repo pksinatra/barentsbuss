@@ -86,7 +86,6 @@
   function renderHome(data) {
     return `
       <section class="home-hero">
-        <img class="home-hero-image" src="${site.heroImage}" alt="Barents Buss på tur">
         <div class="home-hero-copy">
           <span class="eyebrow">${data.kicker}</span>
           <h1>${data.title}</h1>
@@ -94,6 +93,15 @@
           <div class="hero-actions">
             <a class="btn primary" href="#/kontakt">${copy().ctaContact}</a>
             <a class="btn secondary" href="#/flybuss">${copy().ctaAirport}</a>
+          </div>
+        </div>
+        <div class="home-hero-media">
+          <div class="hero-image-frame">
+            <img class="home-hero-image" src="${site.heroImage}" alt="Barents Buss på tur">
+          </div>
+          <div class="hero-badge">
+            <span>${state.lang === "no" ? "Bestilling 24-7" : "Booking 24/7"}</span>
+            <strong>${site.contact.phoneCompact}</strong>
           </div>
         </div>
       </section>
@@ -157,7 +165,7 @@
 
     return `
       <div class="container page-stack">
-        ${heroSection(data, "assets/images/DSC_0330.jpg")}
+        ${heroSection(data, site.heroImage)}
         <section class="schedule-section">
           <div class="schedule-scroll">
             <table>
@@ -247,9 +255,16 @@
       <div class="container page-stack compact">
         ${heroSection(data)}
         <section class="employee-panel">
-          <a class="btn primary" target="_blank" rel="noopener noreferrer" href="${site.employeeDocumentUrl}">
-            ${data.openDocument}
-          </a>
+          <iframe
+            class="employee-document"
+            title="${data.openDocument}"
+            src="${site.employeeDocumentUrl}"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <p class="employee-document-fallback">
+            <a target="_blank" rel="noopener noreferrer" href="${site.employeeDocumentUrl}">${data.openDocument}</a>
+          </p>
         </section>
       </div>
     `;
