@@ -31,13 +31,15 @@
 
   function updateMeta(page) {
     const languageCopy = copy();
-    const title = `${pageCopy(page.key).title} | Barents Buss`;
+    const title = languageCopy.pageTitles[page.key] || `${pageCopy(page.key).title} | Barents Buss`;
     const description = languageCopy.meta[page.key] || site.defaultDescription;
     document.title = title;
     setMeta("description", description);
+    setMeta("robots", "index, follow, max-image-preview:large");
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
     setMeta("og:url", `${site.siteUrl}${page.slug ? `#/${page.slug}` : ""}`, "property");
+    setMeta("og:image:alt", site.heroImageAlt, "property");
   }
 
   function setMeta(name, content, attribute = "name") {

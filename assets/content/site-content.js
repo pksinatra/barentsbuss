@@ -1,10 +1,11 @@
 window.siteContent = {
-  defaultTitle: "Barents Buss | Turbuss og flybuss i Sør-Varanger",
+  defaultTitle: "Barents Buss | Turbuss, flybuss og transfer i Barentsregionen",
   defaultDescription:
-    "Barents Buss i Kirkenes tilbyr turbuss, transfer, sightseeing, gruppeturer og flybuss i Barentsregionen. Bestilling 24-7 på telefon 90 26 23 46.",
+    "Barents Buss AS i Kirkenes tilbyr turbuss, flybuss, transfer, sightseeing og gruppeturer i Barentsregionen, Sør-Varanger, Norge, Finland, Sverige og Russland.",
   siteUrl: "https://www.barentsbuss.no/beta/",
   logo: "assets/images/cropped-barents-buss-Logo-liten25304.png",
   heroImage: "assets/images/forside.jpg",
+  heroImageAlt: "Barents Buss turbuss i Kirkenes",
   sectionImage: "assets/images/cropped-cropped-forside.jpg",
   footerImage: "assets/images/footer-image.jpg",
   employeePassword: "Barentsbuss-2018",
@@ -52,13 +53,22 @@ window.siteContent = {
       ctaContact: "Kontakt oss",
       ctaAirport: "Se flybuss",
       footer: "Barents Buss AS",
+      pageTitles: {
+        home: "Barents Buss | Turbuss, flybuss og transfer i Barentsregionen",
+        about: "Om oss | Barents Buss",
+        services: "Turbuss | Barents Buss",
+        airport: "Flybuss Kirkenes | Barents Buss",
+        contact: "Kontakt | Barents Buss",
+        gallery: "Video og bilder | Barents Buss",
+        employees: "For ansatte | Barents Buss"
+      },
       meta: {
-        home: "Barents Buss AS er stasjonert i Kirkenes og tilbyr turbuss, transfer, sightseeing, gruppeturer og flybuss i Barentsregionen.",
-        about: "Les om Barents Buss AS, lokal erfaring siden 1994 og busser utstyrt for trygge turer i Norge, Finland, Sverige og Russland.",
-        services: "Bestill turbuss, transfer, sightseeing og gruppeturer hos Barents Buss AS. Busser med AC, toalett, kjøkken, lading og WiFi.",
-        airport: "Rutetider og pris for Barents Buss flybuss mellom Kirkenes lufthavn, hotellene, sykehuset og Hurtigruten.",
-        contact: "Kontakt Barents Buss AS for uforpliktende tilbud på turkjøring, transfer, sightseeing og flybuss.",
-        gallery: "Video og bilder fra turer med Barents Buss AS i Barentsregionen.",
+        home: "Barents Buss AS i Kirkenes tilbyr turbuss, flybuss, transfer, sightseeing og gruppeturer i Barentsregionen. Turbussen for deg som reiser i nord.",
+        about: "Barents Buss AS har lokal erfaring fra turkjøring i Norge, Russland, Sverige og Finland siden 1994. Sikkerhet, kvalitet og fornøyde kunder.",
+        services: "Bestill turbuss, transfer, sightseeing og gruppeturer hos Barents Buss AS i Kirkenes. Komfortable busser med AC, toalett, lading og WiFi.",
+        airport: "Flybuss i Kirkenes: rutetider og pris for shuttle-buss mellom Kirkenes lufthavn, Hurtigruten, Thon hotell, Scandic hotell og sykehuset.",
+        contact: "Kontakt Barents Buss AS i Svanvik/Kirkenes for uforpliktende tilbud på turbuss, flybuss, transfer, sightseeing og gruppeturer.",
+        gallery: "Video og bilder fra turer med Barents Buss AS i Barentsregionen, Kirkenes, Sør-Varanger og Nordkalotten.",
         employees: "Passordbeskyttet område for ansatte i Barents Buss AS."
       },
       home: {
@@ -163,13 +173,22 @@ window.siteContent = {
       ctaContact: "Contact us",
       ctaAirport: "Airport shuttle",
       footer: "Barents Buss AS",
+      pageTitles: {
+        home: "Barents Buss | Coach hire, airport shuttle and transfers in the Barents region",
+        about: "About us | Barents Buss",
+        services: "Coach service | Barents Buss",
+        airport: "Kirkenes airport shuttle | Barents Buss",
+        contact: "Contact | Barents Buss",
+        gallery: "Video & photos | Barents Buss",
+        employees: "For employees | Barents Buss"
+      },
       meta: {
-        home: "Barents Buss AS in Kirkenes provides coach hire, transfers, sightseeing, group trips and airport shuttle service in the Barents region.",
-        about: "About Barents Buss AS, local transport experience since 1994 and well-equipped coaches for safe travel.",
-        services: "Book coach hire, transfers, sightseeing and group travel with Barents Buss AS.",
-        airport: "Airport shuttle timetable and price between Kirkenes Airport, hotels, the hospital and Hurtigruten.",
-        contact: "Contact Barents Buss AS for a no-obligation quote for coach hire, transfers, sightseeing and airport shuttle.",
-        gallery: "Video and photos from trips with Barents Buss AS in the Barents region.",
+        home: "Barents Buss AS in Kirkenes offers coach hire, airport shuttle, transfers, sightseeing and group trips in the Barents region and Northern Norway.",
+        about: "Barents Buss AS has local coach travel experience in Norway, Russia, Sweden and Finland since 1994, with safety and quality in focus.",
+        services: "Book coach hire, transfers, sightseeing and group trips with Barents Buss AS in Kirkenes. Comfortable coaches with AC, toilet, charging and WiFi.",
+        airport: "Kirkenes airport shuttle timetable and price between Kirkenes Airport, Hurtigruten, Thon Hotel, Scandic Hotel and the hospital.",
+        contact: "Contact Barents Buss AS in Kirkenes/Svanvik for a no-obligation quote for coach hire, airport shuttle, transfers and sightseeing.",
+        gallery: "Video and photos from trips with Barents Buss AS in the Barents region, Kirkenes, Sør-Varanger and Northern Norway.",
         employees: "Password-protected area for Barents Buss AS employees."
       },
       home: {
